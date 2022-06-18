@@ -1,0 +1,124 @@
+<script
+  src="https://www.paypal.com/sdk/js?client-id=ARuzD_sI028Uh9hU-n9Odc7WGg0_LKCrsXrYmo2MHrxF5aGmIAz7TcfAfEfB1v4hcetVQMtWNPcqKEwp"
+  data-namespace="paypal_sdk"
+></script>;
+
+<div class="container p-4">
+
+  <h3 class="bc-header mb-2 text-center p-4">MY Orders</h3>
+  <hr />
+  {{#each orders}}
+
+    <div class="row w-100 p-4 order-card-border">
+      <div class="col-xs-6 col-md-3 text-center position-relative">
+        <img
+          src="/images/productImage/{{this.order.product._id}}1.png"
+          alt=""
+          style="width: 150px;"
+        />
+      </div>
+      <div class="col-xs-6 col-md-3">
+        <span></span>
+        <h5>{{this.order.product.ProductName}}</h5>
+
+      </div>
+      <div class="col-xs-6 col-md-3 text-right" id="priceTable">
+        <table>
+          <tr
+            class="p-2"
+            style="border-bottom: 1px solid rgba(138, 135, 135, 0.363);"
+          >
+            <td>Price </td>
+            <td> &nbsp&nbsp&nbsp&nbsp</td>
+            <td>{{this.order.product.price}}</td>
+          </tr>
+
+          <tr
+            class="p-2"
+            style="border-bottom: 1px solid  rgba(138, 135, 135, 0.363);"
+          >
+            <td>quantity </td>
+            <td> &nbsp&nbsp&nbsp&nbsp</td>
+            <td>{{this.order.products.quantity}}</td>
+          </tr>
+          <tr class="p-2" style="border-bottom: 1.5px solid  rgba(0, 0, 0, 0.363);">
+            <td>Price </td>
+            <td> &nbsp&nbsp&nbsp&nbsp</td>
+            <td>{{this.order.subTotal}}</td>
+          </tr>
+          <tr class="p-2" style="border-bottom: 1px solid  rgba(138, 135, 135, 0.363);">
+            <td>discound </td>
+            <td> &nbsp&nbsp&nbsp&nbsp</td>
+            <td>{{Discound this.order.products.coupenDiscound}}</td>
+          </tr>
+          <tr class="p-2" style="border-bottom: 1px solid  rgba(138, 135, 135, 0.363);">
+            <td>Paid Amount </td>
+            <td> &nbsp&nbsp&nbsp&nbsp</td>
+            <td>{{padiAmount this.order.subTotal this.order.products.coupenDiscound}}</td>
+          </tr>
+
+        </table>
+      </div>
+      <div class="col-xs-6 col-md-3 text-right" id="paymentStatusbtn">
+        Date :
+        {{formatDate this.date "DD-MM-YYYY"}}<br /><hr />
+
+        {{orderConfirmation
+          this.order.products.deliveryStatus
+          this.orderStatus
+        }}
+
+      </div>
+    </div>
+
+  {{/each}}
+
+  <div class="modal" tabindex="-1" role="dialog" id="rePaymentModala">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Choose Your Payment Method</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="rePaymentForm">
+            <div class="col">
+              <input type="radio" name="payment" id="cod" value="cod" />
+              <label for="cod">Cash On Delivery</label>
+            </div>
+            <div class="col">
+              <input type="radio" name="payment" id="razorpy" value="razorpy" />
+              <label for="razorpy">Razorpay</label>
+            </div>
+            <div class="col">
+              <input type="radio" name="payment" id="paypal" value="paypal" />
+              <label for="paypal">Paypal</label>
+              {{! <div id="paypal-button-container"></div> }}
+              <div id="paypal-button"></div>
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            id="rePyamentBtn"
+          >Repayment</button>
+          <button
+            type="submit"
+            class="btn btn-secondary"
+            data-dismiss="modal"
+          >Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

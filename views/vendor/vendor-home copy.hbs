@@ -1,0 +1,295 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.0/css/dataTables.dateTime.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-3"><strong>Dashboard</strong></h5>
+
+    <div class="row mt-1">
+        <div class="col-sm-12 col-md-6 col-lg-7">
+            <!--Analytics-->
+            <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                <h6 class="mb-3">Order Details</h6>
+
+                <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                    <canvas id="myChart" height="200px"></canvas>
+                </div>
+
+
+
+            </div>
+            <!--/Analytics-->
+
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-5">
+            <!--Analytics-->
+            <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                <h6 class="mb-3">Top Selling 5 Product</h6>
+                <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                    <canvas id="totalSales" height="200px"></canvas>
+                </div>
+            </div>
+            <!--/Analytics-->
+
+        </div>
+
+        {{!-- <div class="col-sm-4 col-md-4">
+            <!--Analytics-->
+            <div class="bg-white border shadow mb-4">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-globe text-theme"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>1,215,509</strong></h3>
+                        <p><small class="bc-description text-theme">TOTAL VISITORS</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border shadow mb-4">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-heart-o text-danger"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>83,509</strong></h3>
+                        <p><small class="bc-description text-danger">MENTIONS</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border shadow">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-lightbulb text-success"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>2,500</strong></h3>
+                        <p><small class="text-success bc-description">PROJECTS</small></p>
+                    </div>
+                </div>
+            </div>
+            <!--/Analytics-->
+
+        </div> --}}
+    </div>
+
+
+
+    <!--Products summary-->
+    <div class="mt-4 mb-4 bg-white border shadow lh-sm">
+        <!--Recent Sales-->
+        <div class="product-list">
+
+            <div class="row mb-0 px-3 p-4">
+                <div class="col-sm-8 pt-2">
+                    <h6 class="mb-4 bc-header">Sales Report</h6>
+                </div>
+                <div class="col-sm-4 text-right pb-3">
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">From</span>
+                        </div>
+                        <input type="date" class="form-control" id="datemin" name="datemin" min="2021-01-01" required>
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroupPrepend2">To</span>
+                        </div>
+                        <input type="date" class="form-control" id="datemax" name="datemax" min="2021-01-02"
+                            max='2000-13-13' required>
+                    </div>
+                    <button class="btn btn-primary" id="dateFilter"
+                        onclick="dateFilter('{{session._id}}')">Filter</button>
+                </div>
+
+            </div>
+
+            <div class="table table-responsive product-list p-4">
+
+                <table id="saleReport" class="table table-bordered table-striped mt-3">
+                    <thead>
+                        <tr class="">
+                            <th>Sl No</th>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Customer</th>
+                            <th>Mobile</th>
+                            <th>Status</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Coupen</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody id="SalesReportTbody">
+                        {{#each salesReport}}
+                        <tr>
+                            <td class="align-middle">{{SerialNumber @index}}</td>
+                            <td class="align-middle">{{formatDate this.date "DD-MM-YYYY"}}</td>
+                            <td class="align-middle">
+                                {{this.order.product.ProductName}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.deliveryAddress.name}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.deliveryAddress.mobile}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.order.products.deliveryStatus}}
+
+                            </td>
+                            <td class="align-middle">{{this.order.products.price}}</td>
+                            <td class="align-middle">{{this.order.products.quantity}}</td>
+                            <td class="align-middle">{{Discound this.order.products.coupenDiscound}}</td>
+                            <td class="align-middle">{{padiAmount this.order.subTotal
+                                this.order.products.coupenDiscound}}</td>
+                        </tr>
+                        {{/each}}
+
+                </table>
+            </div>
+        </div>
+        <!--/Recent sales-->
+    </div>
+    <!--Product summary-->
+
+
+</div>
+<script src="/javascripts/chart.js"></script>
+<script>
+    var ctx = document.getElementById("myChart").getContext("2d");
+    Chart.defaults.font.family = "lato";
+    Chart.defaults.font.size = 16;
+    Chart.defaults.font.color = "#777";
+
+    var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["Not Confirmed", "Confirm", "Packed", "Shipped", "Deliverd", "Canceled"],
+            datasets: [
+                {
+                    label: "Order Status",
+                    data: [{{ orderStatus }}],
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 2,
+        },
+            ],
+        },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                },
+        },
+    },
+    });
+
+</script>
+<script>
+    var sales = document.getElementById("totalSales").getContext("2d");
+    Chart.defaults.font.family = "lato";
+    Chart.defaults.font.size = 16;
+    Chart.defaults.font.color = "#777";
+
+    var saleReport = new Chart(sales, {
+        type: "pie",
+        data: {
+            labels: ["{{ PieChart.p1 }}", "{{ PieChart.p2 }}", "{{ PieChart.p3 }}", "{{ PieChart.p4 }}", "{{ PieChart.p5 }}"],
+            datasets: [
+                {
+                    label: "Top Sellig Products",
+                    data: [{{ PieChart.productCount }}],
+
+            backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 2,
+        },
+            ],
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                },
+        },
+    },
+    });
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $('#saleReport').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'copy',
+                    text: '<i class="fa fa-files-o exportBtn text-primary"></i>',
+                    titleAttr: 'Copy'
+                },
+                {
+                    extend: 'pdf',
+                    title: 'bigDeal Sales Report',
+                    text: '<i class="fas fa-file-pdf exportBtn text-primary"></i>',
+                    titleAttr: 'pdf'
+                },
+                {
+                    extend: 'excel',
+                    title: 'bigDeal Sales Report',
+                    text: '<i class="fas fa-file-excel exportBtn text-primary"></i>',
+                    titleAttr: 'excel'
+                },
+                {
+                    extend: 'csv',
+                    title: 'bigDeal Sales Report',
+                    text: '<i class="fas fa-file-csv exportBtn text-primary"></i>',
+                    titleAttr: 'csv'
+                },
+                {
+                    extend: 'print',
+                    title: 'bigDeal Sales Report',
+                    text: '<i class="fas fa-print exportBtn text-primary"></i>',
+                    titleAttr: 'print'
+                }
+            ]
+        });
+    });
+
+</script>

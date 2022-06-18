@@ -1,0 +1,76 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+    :root {
+        --font: 'Acme', sans-serif;
+        --font-size: 55px
+    }
+
+    .thanks-page-wrapper {
+        
+        background-image: url('/images/users/thank.jpg');
+        background-position: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+    }
+
+    .thank-text {
+        font-size:
+            var(--font-size);
+        font-family: var(--font);
+        color: aliceblue;
+        transition: .9s all;
+    }
+
+    .contnetn-div {
+        background-color: rgba(85, 44, 58, 0.842);
+        height:
+            300px;
+        border-radius: 10px;
+        transition: .5s all;
+    }
+
+    .contnetn-div:hover {
+        background-color:
+            rgba(255, 253, 255, 0.63);
+        box-shadow: 5px 10px 15px #6e6b6b;
+    }
+
+    .contnetn-div:hover span {
+        color: black;
+    }
+
+    .text-div {
+        line-height: 1.5;
+        height: 100%;
+    }
+
+    .btn-action {
+        width: 250px;
+    }
+</style>
+
+<div class="thanks-page-wrapper d-flex align-items-center justify-content-center">
+    <div class="row contnetn-div">
+        <div
+            class="col-sm-12 text-div text-center align-middle d-flex flex-column align-items-center justify-content-center">
+            <div>
+                <span class="thank-text text-center">
+                    Thank You for Shopping with us
+                </span>
+            </div>
+            <div>
+                <a href="/" class="btn btn-success btn-action text-white">
+                    Go to Home Page
+                </a>
+                <a href="/my-orders" class="btn btn-primary btn-action text-white">
+                    View Orders
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+</div>

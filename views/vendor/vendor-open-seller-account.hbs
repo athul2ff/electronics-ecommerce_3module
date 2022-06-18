@@ -1,0 +1,77 @@
+<div class="container-fluid login-wrapper">
+  <div class="login-box">
+    <h1 class="text-center mb-5"><i class="fas fa-truck-loading"></i>
+      Open Seller Account</h1>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-12 login-box-info d-flex flex-column justify-content-center align-items-around">
+        <h3 class="mb-4">Sign in</h3>
+        <p class="mb-4">If you have an account, click Login. An individual can
+          only open one account, one vendor cannot open more than one account</p>
+        <p class="text-center"><a href="/vendor/login" class="btn btn-light">Login here</a></p>
+      </div>
+      <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
+        <h3 class="mb-2">Sign up</h3>
+        <small class="text-muted bc-description">Create new account</small>
+
+        <form action="/vendor/open-seller-account" class="mt-2" id="validation_style" method="POST" autocomplete="off">
+          {{#if vendorError}}
+          <p class="text-muted bc-description text-center signupError" style="color: red;">Email or Mobile Number
+            Already Exisit !, Please use New One</p>
+          {{/if}}
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control mt-0" placeholder="Username" aria-label="Username"
+              aria-describedby="basic-addon1" data-validation="required" name="username" />
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope"></i></span>
+            </div>
+            <input type="email" class="form-control mt-0" placeholder="johndoe@gmail.com" aria-label="email"
+              aria-describedby="basic-addon1" name="email" data-validation="email" />
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-phone"></i></span>
+            </div>
+            <input type="tel" id="mobile" class="form-control mt-0" placeholder="1234567890" aria-label="phone"
+              aria-describedby="basic-addon1" name="mobile" maxlength="10" data-validation="number length"
+              data-validation-length="min10" value="9746386571" />
+            <span onclick="sendOTP()" class="input-group-text verify-mobile" id="basic-addon1">Send OTP</span>
+          </div>
+
+          <div class="input-group mb-3">
+            <input type="text" class="form-control mt-0" placeholder="Enter otp" data-validation="required"
+              maxlength="4" id="otp" />
+            <div class="input-group-prepend">
+              <span class="input-group-text verify-mobile" id="basic-addon1" onclick="verifyOTP()">Verify</span>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control mt-0" placeholder="Password" aria-label="Password"
+              aria-describedby="basic-addon1" name="password" data-validation="required"
+              data-validation-length="max8" />
+          </div>
+
+          <div class="form-group">
+            <button type="submit" class="btn btn-theme btn-block p-2 mb-1 regButton" id="regButton">Register</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .signupError {
+    color: rgb(214, 71, 71);
+    font-size: 12px;
+  }
+</style>

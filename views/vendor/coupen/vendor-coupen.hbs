@@ -1,0 +1,64 @@
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+  <h5 class="mb-0"><strong>Coupen Management</strong></h5>
+  <span class="text-secondary">Coupen Management
+    <i class="fa fa-angle-right"></i>
+    All Coupen</span>
+
+  <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+    <!--Product Listing-->
+    <div class="product-list">
+
+      <div class="row border-bottom mb-4">
+        <div class="col-sm-8 pt-2">
+          <h6 class="mb-4 bc-header">All Coupens</h6>
+        </div>
+        <div class="col-sm-4 text-right pb-3">
+          <a href="/vendor/add-coupen" class="btn btn-round btn-theme text-white"><i class="fa fa-plus"></i>
+            Add Cupoen</a>
+        </div>
+      </div>
+
+      <div class="table-responsive product-list">
+
+        <table class="table table-bordered table-striped mt-3" id="productList">
+          <thead>
+            <tr>
+              <th width="6%">Image</th>
+              <th>Product Name</th>
+              <th>Price</th>
+              <th>Discound Percentage</th>
+              <th>Selling Price</th>
+              <th>Coupne Code</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each coupen}}
+            <tr>
+              <td class="align-middle"><img src="/images/productImage/{{this.productID}}1.png" width="80px" alt="" />
+              </td>
+              <td class="align-middle">
+                <h6><strong>{{this.product.ProductName}}</strong></h6>
+
+              </td>
+              <td class="align-middle">₹ {{this.product.price}}</td>
+              <td class="align-middle"><span class="text-danger">{{this.discound}}</span></td>
+              <td class="align-middle"><span class="text-danger">{{this.priceAfterDsicound}}</span></td>
+              <td class="align-middle"><span class="text-danger">{{this.coupenCode}}</span></td>
+
+              <td class="align-middle text-center">
+                <a class="btn btn-link text-theme p-1" data-toggle="tooltip" data-placement="top" title="Edit Coupen"
+                  href="/vendor/edit-coupen/{{this._id}}"><i class="fa fa-pencil"></i></a>
+<i class="far fa-trash-alt btn btn-link text-warning p-1" data-toggle="tooltip" data-placement="top"
+                  title="End Coupen" onclick="deleteCoupen('{{this._id}}')"></i>
+              </td>
+            </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--/Product Listing-->
+  </div>
+</div>

@@ -1,0 +1,166 @@
+<style>
+  .applyDiscound { position: absolute; top: 0; right: 0; }
+</style>
+
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+  <h5 class="mb-0">
+    <strong>
+      Coupen Management
+    </strong>
+  </h5>
+  <span class="text-secondary">
+    Cupen Management
+    <i class="fa fa-angle-right"></i>
+    Add Coupen
+  </span>
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <!--Validation types using Form-validator.js-->
+      <div class="mt-1 mb-4 p-3 button-container bg-white border shadow-sm">
+        <h6 class="mb-2">
+          Enter Coupen Deteils
+        </h6>
+
+        <form id="addCoupen" class="mt-3">
+          <div class="row">
+            <div class="col-md-6 col-sm-12">
+              <div>
+                <label for="ProductName">
+                  Product Name
+                </label>
+              </div>
+              <div>
+                <select
+                  class="custom-select"
+                  id="productID"
+                  name="productID"
+                  onchange="getProductData()"
+                >
+                  <option value="">Choose One</option>
+                  {{#each product}}
+                    <option value="{{this._id}}">{{this.ProductName}}</option>
+                  {{/each}}
+                </select>
+              </div>
+              <div>
+                <div>
+                  <label for="productBrand">
+                    Brand Name
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="vendorID"
+                    class="form-control d-none"
+                    name="vendorID"
+                  />
+                  <input
+                    type="text"
+                    id="productBrand"
+                    class="form-control"
+                    
+                    readonly
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="price">
+                    Product Price
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    id="price"
+                    class="form-control"
+                    name="price"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="discound">
+                    Product Discound in Percentage
+                  </label>
+                </div>
+                <div class="position-relative">
+                  <input
+                    type="number"
+                    id="discound"
+                    class="form-control col-md-9"
+                    name="discound"
+                      step=any
+                  />
+                  <sapn
+                    class="btn btn-primary applyDiscound col-2"
+                    onclick="generateCoupen()"
+                  >Apply
+                  </sapn>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="priceAfterDsicound">
+                    Price After Discound
+                  </label>
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    id="priceAfterDsicound"
+                    class="form-control"
+                    name="priceAfterDsicound"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="coupenCode">
+                  Coupen Code
+                </label>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  id="coupenCode"
+                  class="form-control"
+                  name="coupenCode"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+              <div class="col-9" id="showProductImage">
+                <label>
+                  Product Image
+                </label>
+                <img
+                  id="offerProductImage"
+                  alt=""
+                  class="col"
+                  style="display: none;"
+                />
+              </div>
+
+            </div>
+            <div class="col mt-4">
+
+              <button class="btn btn-primary col" type="submit">
+                Add Offer
+              </button>
+            </div>
+
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <!--Main Content-->
+</div>
+<!--Page Wrapper-->

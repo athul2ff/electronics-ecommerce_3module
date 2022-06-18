@@ -1,0 +1,165 @@
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-0"><strong>Order Management</strong></h5>
+    <span class="text-secondary">Confirmed Orders </span>
+
+    <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+        <!--Order Listing-->
+        <div class="product-list">
+
+            <div class="row border-bottom mb-4">
+                <div class="col-sm-8 pt-2">
+                    <h6 class="mb-4 bc-header">Confirmed Orders</h6>
+                </div>
+                <div class="col-sm-4 text-right pb-3">
+
+
+
+
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+
+            <div class="table-responsive product-list">
+
+                
+        <table class="table table-bordered table-striped mt-3" id="productList">
+          <thead>
+            <tr>
+
+              <th>Sl No</th>
+              <th>Order date</th>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Status</th>
+              <th>Total</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="orderResult">
+            {{#each order}}
+              <tr>
+                <th>{{SerialNumber @index}}</th>
+                <td>{{formatDate this.date "DD-MM-YYYY"}}</td>
+                <td>{{this._id}}</td>
+                <td class="align-middle">
+                  {{this.order.product.ProductName}}
+                </td>
+                <td class="align-middle">
+                  <select
+                    name="deliveryStatus"
+                    id="deliveryStatus{{@index}}"
+                    class="custom-select col"
+                  >
+                    {{Dstatus this.order.products.deliveryStatus}}
+                  </select>
+                  <button
+                    class="btn btn-success mt-2 col"
+                    onclick="changeStatus('{{this._id}}','{{this.order.product._id}}','deliveryStatus{{@index}}')"
+                  >
+                    Update</button>
+                </td>
+                <td class="align-middle">₹{{this.order.subTotal}}</td>
+                
+                <td class="align-middle text-center">
+                  <button
+                    class="btn btn-theme"
+                    onclick="showOrderDetails('{{this._id}}','{{this.order.product._id}}')"
+                  >
+                    <i class="fa fa-eye"></i>
+                  </button>
+{{!-- 
+                  <button
+                    class="btn btn-danger"
+                    onclick="cancelOrderDetails('{{this.order.product.vendorID}}','{{this.order.product._id}}')"
+                  ><i class="fas fa-trash"></i></button> --}}
+                </td>
+              </tr>
+
+            {{/each}}
+
+          </tbody>
+        </table>
+            </div>
+        </div>
+        <!--/Order Listing-->
+
+        <!--Order Info Modal-->
+        <div class="modal fade" id="orderInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle orderID">
+                            Order Info
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="row">Item</th>
+                                    <th>Quantity</th>
+                                    <th>Unit price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultArea">
+
+                            </tbody>
+                        </table>
+
+                        <div class="text-right mt-4 p-4">
+
+                            <p><strong>Shipping: Free</strong></p>
+
+                            <h4 id="TotalAmount" class="mt-2"><strong>Total: </strong></h4>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Order Info Modal-->
+
+        <!--Order Update Modal-->
+        <div class="modal fade" id="orderUpdate" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="orderUpdateHead">Ord#13 details update</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="row">Item</th>
+                                    <th class="order-qty-head">Quantity</th>
+                                    <th>Unit price</th>
+                                    <th>Status</th>
+                                    <th>Save</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderUpdateResultArea">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Order Update Modal-->
+    </div>
+
+</div>

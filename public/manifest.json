@@ -1,0 +1,31 @@
+{
+  "name": "bigDeal",
+  "short_name": "bigDeal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff",
+  "orientation": "portrait",
+
+  "icons": [
+    {
+      "src": "/images/pwq64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/pwq128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/pwq256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/pwq512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

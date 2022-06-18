@@ -1,0 +1,83 @@
+<div class="col bg-light">
+  <h3 class="text-center" style="margin: 20px;">Cart</h3>
+</div>
+<div class="container padding-bottom-3x mb-1">
+
+  <div class="table-responsive shopping-cart">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th class="text-center">Quantity</th>
+          <th class="text-center">Price</th>
+          <th class="text-center"><a class="btn btn-warning" href="/clearCart">Clear Cart</a></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+        <tr>
+          <td>
+            <div class="product-item">
+              <a class="product-thumb" href="#"><img src="/images/productImage/{{this.product._id}}1.png" alt="Product" /></a>
+              <div class="product-info">
+                <h4 class="product-title"><a href="#">{{this.product.ProductName}}</a></h4>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">
+            <div class="count-control">
+              <div class="button-div"
+                onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../userSession._id}}',-1)">
+                <i class="fas fa-chevron-down count-control-button"></i>
+              </div>
+              <span class="count-area" id="{{this.product._id}}">{{this.products.quantity}}</span>
+              <div class="button-div"
+                onclick="changeQuantity('{{this._id}}','{{this.product._id}}','{{../userSession._id}}',1)">
+                <i class="fas fa-chevron-up count-control-button"></i>
+              </div>
+            </div>
+          </td>
+          <td class="text-center ">
+            <h5 class="product-title" id="subTotal{{this.product._id}}">
+              ₹ {{this.subTotal}}
+            </h5>
+          </td>
+          <td class="text-center">
+            <i class="deleteButton fa fa-trash " style="font-size: 20px;"
+              onclick="deleteProductFromCart('{{this._id}}','{{this.product._id}}','{{this.products.ProductName}}')"></i>
+          </td>
+        </tr>
+        {{/each}}
+        <hr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <h5 class="product-title">
+              Total Amount
+            </h5>
+          </td>
+          <td class="text-right">
+            <h5 class="product-title " id="totalAmount">
+              {{TotalAmount}}
+            </h5>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="shopping-cart-footer">
+    <div class="column"><a class="btn btn-primary" href="/"><i class="icon-arrow-left"></i>&nbsp;Back to
+        Shopping</a></div>
+    {{!-- <div class="column">
+      <label for="code">Do you have Discound Coupen ? </label>
+      <input type="text" id="code" name="coupen">
+      <button class="btn btn-info">
+        Apply
+      </button>
+    </div> --}}
+    <div class="column"><a class="btn btn-success" href="/checkout">Checkout</a></div>
+  </div>
+</div>

@@ -1,0 +1,154 @@
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-3"><strong>Dashboard</strong></h5>
+
+    <div class="row mt-1">
+        <div class="col-sm-8 col-md-8">
+            <!--Analytics-->
+            <div class="mt-1 mb-3 p-3 button-container bg-white shadow-sm border">
+                <h6 class="mb-3">Revenue Analytics</h6>
+
+                <canvas id="revenueChart" height="300px"></canvas>
+
+            </div>
+            <!--/Analytics-->
+
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+            <!--Analytics-->
+            <div class="bg-white border shadow mb-4">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-globe text-theme"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>1,215,509</strong></h3>
+                        <p><small class="bc-description text-theme">TOTAL VISITORS</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border shadow mb-4">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-heart-o text-danger"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>83,509</strong></h3>
+                        <p><small class="bc-description text-danger">MENTIONS</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border shadow">
+                <div class="media p-4">
+                    <div class="align-self-center mr-3 rounded-circle notify-icon_2 bg-white">
+                        <i class="fa fa-lightbulb text-success"></i>
+                    </div>
+                    <div class="media-body pl-2">
+                        <h3 class="mt-0 mb-0"><strong>2,500</strong></h3>
+                        <p><small class="text-success bc-description">PROJECTS</small></p>
+                    </div>
+                </div>
+            </div>
+            <!--/Analytics-->
+
+        </div>
+    </div>
+
+    <!--Products summary-->
+    <div class="mt-4 mb-4 bg-white border shadow lh-sm">
+        <!--Recent Sales-->
+        <div class="product-list">
+
+            <div class="row mb-0 px-3 pt-3">
+                <div class="col-sm-8 pt-2">
+                    <h6 class="mb-4 bc-header">Sales Report</h6>
+                </div>
+                <div class="col-sm-4 text-right pb-3">
+                    <div class="pull-right mr-3 btn-order-bulk">
+                        {{!-- <button class="btn btn-theme btn-round">PDF</button> --}}
+                        <i class="far fa-file-pdf text-danger exportBtn ml-2" data-toggle="tooltip" data-placement="top"
+                            title="Export to PDF"></i>
+                        <i class="fas fa-file-excel exportBtn ml-2" data-toggle="tooltip" data-placement="top"
+                            title="Export to xls"></i>
+                        <i class="fas fa-file-csv text-primary exportBtn ml-2" data-toggle="tooltip"
+                            data-placement="top" title="Export to CSV"></i>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="col p-0">
+                    <div class="input-group col-6 ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">From</span>
+                        </div>
+                        <input type="date" class="form-control">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="">To</span>
+                        </div>
+                        <input type="date" class="form-control">
+                        <span class=" btn btn-primary" id="">Filter</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive product-list p-4">
+
+                <table class="table table-striped table-bordered mt-0" id="productList">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Date</th>
+                            <th>Product</th>
+                            <th>Customer</th>
+                            <th>Mobile</th>
+                            <th>Status</th>
+                            <th>Price</th>
+                            <th>Qty</th>
+                            <th>Coupen Discound</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each salesReport}}
+                        <tr>
+                            <td class="align-middle">{{SerialNumber @index}}</td>
+                            <td class="align-middle">{{formatDate this.date "DD-MM-YYYY"}}</td>
+                            <td class="align-middle">
+                                {{this.order.product.ProductName}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.deliveryAddress.name}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.deliveryAddress.mobile}}
+                            </td>
+                            <td class="align-middle">
+                                {{this.order.products.deliveryStatus}}
+
+                            </td>
+                            <td class="align-middle">{{this.order.products.price}}</td>
+                            <td class="align-middle">{{this.order.products.quantity}}</td>
+                            <td class="align-middle">{{Discound this.order.products.coupenDiscound}}</td>
+                            <td class="align-middle">{{padiAmount this.order.subTotal
+                                this.order.products.coupenDiscound}}</td>
+                        </tr>
+                        {{/each}}
+
+                </table>
+            </div>
+        </div>
+        <!--/Recent sales-->
+    </div>
+    <!--Product summary-->
+
+
+</div>
+</div>
+
+<!--Main Content-->
+
+</div>
+
+<!--Page Wrapper-->

@@ -1,0 +1,167 @@
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+  <h5 class="mb-0"><strong>Update Product</strong></h5>
+  <span class="text-secondary">Product Management
+    <i class="fa fa-angle-right"></i>
+    Update Product</span>
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <!--Validation types using Form-validator.js-->
+      <div class="mt-1 mb-4 p-3 button-container bg-white border shadow-sm">
+        <h6 class="mb-2">Enter Product Details</h6>
+        <p class="mb-2">
+          <code>Upload 4 Images of Product</code>
+        </p>
+
+        <form action="/vendor/edit-product/{{product._id}}" id="editProduct" class="mt-3" method="POST"
+          autocomplete="off" enctype="multipart/form-data">
+
+          <div class="form-group row">
+            <label for="Required1" class="col-sm-3">Product Name
+              <code>*</code></label>
+            <div class="col-sm-9">
+              <input type="text" id="Required1" class="form-control d-none" data-validation="required" name="vendorID"
+                value="{{session._id}}" />
+
+              <input type="text" id="Required1" class="form-control" data-validation="required" name="ProductName"
+                value="{{product.ProductName}}" />
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="productBrand" class="col-sm-3">Product Brand
+              <code>*</code>
+            </label>
+            <div class="col-sm-9">
+              <input type="text" id="productBrand" class="form-control" data-validation="required" name="productBrand"
+                value="{{product.productBrand}}" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="price" class="col-sm-3">Price <code>*</code> </label>
+            <div class="col-sm-9">
+              <input type="text" id="price" class="form-control" data-validation="required" name="price"
+                value="{{product.price}}" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="price" class="col-sm-3">Quantity <code>*</code> </label>
+            <div class="col-sm-9">
+              <input type="number" id="price" class="form-control" data-validation="required" name="stock"
+                value="{{product.stock}}" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="price" class="col-sm-3">Status <code>*</code> </label>
+            <div class="col-sm-9">
+              <select class="custom-select" id="inputGroupSelect01" name="status">
+                <option value="published">Published</option>
+                <option value="draft">Draft</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="Rlength1" class="col-sm-3 mt-3">Product Description</label>
+            <div class="col-sm-9">
+
+              <textarea required id="Rlength1" class="form-control" name="description" rows="5">{{product.description}}
+              </textarea>
+            </div>
+          </div>
+          {{! IMages }}
+          {{!-- <div class="form-group row">
+            <label class="control-label col-sm-2" for="img1">Main image</label>
+            <div class="col-sm-10">
+              <input type="file" class="form-control" id="img1" name="img1" onchange="viewImage1(event)" />
+              <img src="/images/productImage/{{product._id}}1.png" alt="" class="imgView" id="imgView1" />
+            </div>
+          </div> --}}
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="form-group">
+                <label for="img1">Main Image</label>
+                <input type="file" class="form-control image" id="img1" name="img1"
+                  accept="image/png, image/gif, image/jpeg"
+                  onchange="changeImage(event,'{{product._id}}','1','imgView1')" />
+                <input type="hidden" name="image1" id="cropedImage1" />
+              </div>
+              <div>
+                <img class="imgView w-100" id="imgView1" src="/images/productImage/{{product._id}}1.png" />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="form-group">
+                <label for="img2">Main Image</label>
+                <input type="file" class="form-control image" id="img2" name="img2"
+                  accept="image/png, image/gif, image/jpeg"
+                  onchange="changeImage(event,'{{product._id}}','1','imgView2')" />
+                <input type="hidden" name="image2" id="cropedImage2" />
+              </div>
+              <div>
+                <img class="imgView w-100" id="imgView2" src="/images/productImage/{{product._id}}2.png" />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="form-group">
+                <label for="img3">Third Image</label>
+                <input type="file" class="form-control image" id="img3" name="img3"
+                  accept="image/png, image/gif, image/jpeg"
+                  onchange="changeImage(event,'{{product._id}}','1','imgView3')" />
+                <input type="hidden" name="image3" id="cropedImage3" />
+              </div>
+              <div>
+                <img class="imgView w-100" id="imgView3" src="/images/productImage/{{product._id}}3.png" />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-3">
+              <div class="form-group">
+                <label for="img4">Fourth Image</label>
+                <input type="file" class="form-control image" id="img4" name="img4"
+                  accept="image/png, image/gif, image/jpeg"
+                  onchange="changeImage(event,'{{product._id}}','1','imgView4')" />
+                <input type="hidden" name="image4" id="cropedImage4" />
+              </div>
+              <div>
+                <img class="imgView w-100" id="imgView4" src="/images/productImage/{{product._id}}4.png" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          <!--Large modal-->
+          <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true" id="modal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h5 class="modal-title text-secondary"><strong>Crop Image</strong></h5>
+                  <button type="button" class="close pull-right" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="width: 100%;">
+                  <div id="image-box">
+                  </div>
+                </div>
+                <div class="preview" id="preview">
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" id="crop">Crop</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!--Main Content-->
+
+</div>
+<!--Page Wrapper-->

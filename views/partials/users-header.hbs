@@ -1,0 +1,143 @@
+<!-- HEADER -->
+<header>
+  <!-- TOP HEADER -->
+  <div id="top-header">
+    <div class="container">
+      <ul class="header-links pull-left">
+        <li><a href="#"><i
+              class="fa fa-phone"
+            ></i>{{userSession.mobile}}</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i>
+            {{userSession.email}}</a></li>
+        <li><a href="#"><i class="fa fa-map-marker"></i>
+            {{userSession.place}}</a></li>
+      </ul>
+      <ul class="header-links pull-right">
+        <li><a href="#"><i class="fa fa-rupee"></i> INR</a></li>
+        {{#if userSession}}
+          <li><a href="/profile"><i class="fa fa-user-o"></i>
+              {{userSession.username}}</a></li>
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/login"><i class="fa fa-user-o"></i>
+              Login</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+  <!-- /TOP HEADER -->
+
+  <!-- MAIN HEADER -->
+  <div id="header">
+    <!-- container -->
+    <div class="container">
+      <!-- row -->
+      <div class="row">
+        <!-- LOGO -->
+        <div class="col-md-3">
+          <div class="header-logo">
+            <a href="/" class="logo">
+              <img src="/images/admin/logo2.png" alt="" />
+            </a>
+          </div>
+        </div>
+        <!-- /LOGO -->
+
+        <!-- SEARCH BAR -->
+        <div class="col-md-6 searchDiv">
+          <div class="header-search">
+            <form>
+              <select class="input-select" id="searchCategory">
+                <option value='*'>All</option>
+                {{#each categories}}
+                  <option value="{{this.category}}">{{this.category}}</option>
+                {{/each}}
+              </select>
+              <input
+                class="input searchBox"
+                placeholder="Search here"
+                id="searchData"
+              />
+
+            </form>
+          </div>
+        </div>
+        <!-- /SEARCH BAR -->
+
+        <!-- ACCOUNT -->
+        <div class="col-md-3 clearfix">
+          <div class="header-ctn">
+
+            <!-- Cart -->
+            <div class="dropdown">
+              <a href="/cart">
+                <i class="fa fa-shopping-cart"></i>
+                <span>Your Cart</span>
+                {{#if cartCount}}
+                  <div class="qty" id="cart-count">{{cartCount}}</div>
+                {{else}}
+                  <div class="qty" id="cart-count">0</div>
+                {{/if}}
+              </a>
+
+            </div>
+            <!-- /Cart -->
+
+            <!-- Menu Toogle -->
+            <div class="menu-toggle">
+              <a href="#">
+                <i class="fa fa-bars"></i>
+                <span>Menu</span>
+              </a>
+            </div>
+            <!-- /Menu Toogle -->
+          </div>
+        </div>
+        <!-- /ACCOUNT -->
+      </div>
+      <!-- row -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- /MAIN HEADER -->
+</header>
+<!-- /HEADER -->
+
+<!-- NAVIGATION -->
+<nav id="navigation">
+  <!-- container -->
+  <div class="container">
+    <!-- responsive-nav -->
+    <div id="responsive-nav">
+      <!-- NAV -->
+
+      <nav class="main-nav navbar-expand-lg navbar-light">
+        <ul class="navbar-nav main-nav">
+
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/shop">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/my-orders">My Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="/profile">Profile</a>
+          </li>
+        </ul>
+      </nav>
+      {{! <ul class="main-nav navbar navbar-expand-lg navbar-light bg-light">
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/shop">Shop</a></li>
+        <li><a href="/myOrders">My Orders</a></li>
+        <li><a href="/profile">Profile</a></li>
+      </ul> }}
+      <!-- /NAV -->
+    </div>
+    <!-- /responsive-nav -->
+  </div>
+  <!-- /container -->
+</nav>
+<!-- /NAVIGATION -->

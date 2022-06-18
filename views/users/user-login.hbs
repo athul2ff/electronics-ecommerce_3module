@@ -1,0 +1,48 @@
+<div class="container-fluid login-wrapper">
+  <div class="login-box">
+    <h1 class="text-center mb-5"><i class="fas fa-user"></i></i>
+      User Login</h1>
+    <div class="row">
+      <div class="col-md-6 col-sm-6 col-12 login-box-info d-flex flex-column justify-content-center align-items-around">
+        <h3 class="mb-4">Sign up</h3>
+        <p class="mb-4">
+          If you want to become a part of big deal Shopping, Open an account
+          immediately without wasting time
+        </p>
+        <p class="text-center"><a href="/signup" class="btn btn-light">Register here</a></p>
+      </div>
+      <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
+        <h3 class="mb-2">Login</h3>
+        <small class="text-muted bc-description">Sign in with your credentials</small>
+        <form action="/login" class="mt-2" id="validation_style_user_login" method="POST">
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="email" class="form-control mt-0 {{userErrorClass}}" placeholder="Enter Your Email ID"
+              aria-label="Username" aria-describedby="basic-addon1" name="email" />
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock"></i></span>
+            </div>
+            <input type="password" class="form-control mt-0 {{userErrorClass}}" placeholder="Password"
+              aria-label="Password" aria-describedby="basic-addon1" name="password" />
+          </div>
+          {{#if userLogginError}}
+          <small class="text-danger"><strong>{{userLogginError}}</strong></small>
+          {{/if}}
+
+          <div class="form-group">
+            <button class="btn btn-theme btn-block p-2 mb-1">Login</button>
+            {{!-- <a href="/forget-password">
+              <small class="text-theme"><strong>Forgot password?</strong></small>
+            </a> --}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

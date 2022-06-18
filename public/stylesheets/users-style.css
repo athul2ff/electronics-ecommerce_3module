@@ -1,0 +1,428 @@
+body {
+  margin-top: 20px;
+}
+select.form-control:not([size]):not([multiple]) {
+  height: 44px;
+}
+select.form-control {
+  padding-right: 38px;
+  background-position: center right 17px;
+  background-repeat: no-repeat;
+  background-size: 9px 9px;
+}
+.form-control:not(textarea) {
+  height: 44px;
+}
+.form-control {
+  padding: 0 18px 3px;
+  border: 1px solid #dbe2e8;
+  border-radius: 22px;
+  background-color: #fff;
+  color: #606975;
+  font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.showProduct {
+  display: block;
+}
+
+.shopping-cart,
+.wishlist-table,
+.order-table {
+  margin-bottom: 20px;
+}
+
+.shopping-cart .table,
+.wishlist-table .table,
+.order-table .table {
+  margin-bottom: 0;
+}
+
+.shopping-cart .btn,
+.wishlist-table .btn,
+.order-table .btn {
+  margin: 0;
+}
+
+.shopping-cart > table > thead > tr > th,
+.shopping-cart > table > thead > tr > td,
+.shopping-cart > table > tbody > tr > th,
+.shopping-cart > table > tbody > tr > td,
+.wishlist-table > table > thead > tr > th,
+.wishlist-table > table > thead > tr > td,
+.wishlist-table > table > tbody > tr > th,
+.wishlist-table > table > tbody > tr > td,
+.order-table > table > thead > tr > th,
+.order-table > table > thead > tr > td,
+.order-table > table > tbody > tr > th,
+.order-table > table > tbody > tr > td {
+  vertical-align: middle !important;
+}
+
+.shopping-cart > table thead th,
+.wishlist-table > table thead th,
+.order-table > table thead th {
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-width: 1px;
+}
+
+.shopping-cart .remove-from-cart,
+.wishlist-table .remove-from-cart,
+.order-table .remove-from-cart {
+  display: inline-block;
+  color: #ff5252;
+  font-size: 18px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.shopping-cart .count-input,
+.wishlist-table .count-input,
+.order-table .count-input {
+  display: inline-block;
+  width: 100%;
+  width: 86px;
+}
+
+.shopping-cart .product-item,
+.wishlist-table .product-item,
+.order-table .product-item {
+  display: table;
+  width: 100%;
+  min-width: 150px;
+  margin-top: 5px;
+  margin-bottom: 3px;
+}
+
+.shopping-cart .product-item .product-thumb,
+.shopping-cart .product-item .product-info,
+.wishlist-table .product-item .product-thumb,
+.wishlist-table .product-item .product-info,
+.order-table .product-item .product-thumb,
+.order-table .product-item .product-info {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.shopping-cart .product-item .product-thumb,
+.wishlist-table .product-item .product-thumb,
+.order-table .product-item .product-thumb {
+  width: 130px;
+  padding-right: 20px;
+}
+
+.shopping-cart .product-item .product-thumb > img,
+.wishlist-table .product-item .product-thumb > img,
+.order-table .product-item .product-thumb > img {
+  display: block;
+  width: 100%;
+}
+
+@media screen and (max-width: 860px) {
+  .shopping-cart .product-item .product-thumb,
+  .wishlist-table .product-item .product-thumb,
+  .order-table .product-item .product-thumb {
+    display: none;
+  }
+}
+
+.shopping-cart .product-item .product-info span,
+.wishlist-table .product-item .product-info span,
+.order-table .product-item .product-info span {
+  display: block;
+  font-size: 13px;
+}
+
+.shopping-cart .product-item .product-info span > em,
+.wishlist-table .product-item .product-info span > em,
+.order-table .product-item .product-info span > em {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.shopping-cart .product-item .product-title,
+.wishlist-table .product-item .product-title,
+.order-table .product-item .product-title {
+  margin-bottom: 6px;
+  padding-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.shopping-cart .product-item .product-title > a,
+.wishlist-table .product-item .product-title > a,
+.order-table .product-item .product-title > a {
+  transition: color 0.3s;
+  color: #374250;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+.shopping-cart .product-item .product-title > a:hover,
+.wishlist-table .product-item .product-title > a:hover,
+.order-table .product-item .product-title > a:hover {
+  color: #0da9ef;
+}
+
+.shopping-cart .product-item .product-title small,
+.wishlist-table .product-item .product-title small,
+.order-table .product-item .product-title small {
+  display: inline;
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+.wishlist-table .product-item .product-thumb {
+  display: table-cell !important;
+}
+
+@media screen and (max-width: 576px) {
+  .wishlist-table .product-item .product-thumb {
+    display: none !important;
+  }
+}
+
+.shopping-cart-footer {
+  display: table;
+  width: 100%;
+  padding: 10px 0;
+  border-top: 1px solid #e1e7ec;
+}
+
+.shopping-cart-footer > .column {
+  display: table-cell;
+  padding: 5px 0;
+  vertical-align: middle;
+}
+
+.shopping-cart-footer > .column:last-child {
+  text-align: right;
+}
+
+.shopping-cart-footer > .column:last-child .btn {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+@media (max-width: 768px) {
+  .shopping-cart-footer > .column {
+    display: block;
+    width: 100%;
+  }
+  .shopping-cart-footer > .column:last-child {
+    text-align: center;
+  }
+  .shopping-cart-footer > .column .btn {
+    width: 100%;
+    margin: 12px 0 !important;
+  }
+}
+
+.coupon-form .form-control {
+  display: inline-block;
+  width: 100%;
+  max-width: 235px;
+  margin-right: 12px;
+}
+
+.form-control-sm:not(textarea) {
+  height: 36px;
+}
+
+.deleteButton {
+  cursor: pointer;
+}
+.count-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: #d6d1d1;
+  border: #c2bdbd;
+  transition: 0.3s all;
+}
+.button-div:hover {
+  background-color: rgb(95, 236, 95);
+  box-shadow: 1px 5px 5px rgb(190, 186, 186);
+}
+.count-control-button {
+  font-size: 20px;
+  padding: 8px;
+}
+.count-area {
+  font-size: 18px;
+  padding: 8px;
+  width: 30px;
+}
+.deleteButton:hover {
+  color: red;
+  transition: 0.5s all;
+}
+
+/* checkout page */
+/* address option */
+.contain {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.contain input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.contain:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.contain input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.contain input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.contain .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/* new address form */
+.shiping-details {
+  display: none;
+  margin-top: 25px;
+}
+/* add to cart btn */
+.addToCartBtn {
+  background-color: #ef233c;
+  border: none;
+}
+
+.edit-btn {
+  font-size: 20px;
+  transition: all 0.5s;
+}
+.edit-btn:hover {
+  color: #1065ac;
+  cursor: pointer;
+}
+/* edit profile form validation */
+.input .error {
+  border: 1px solid red;
+}
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.order-card-border {
+  border-bottom: 1px solid rgb(65, 62, 62);
+  transition: 0.5s all;
+}
+.order-card-border:hover {
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.507);
+  background-color: rgb(243, 232, 219);
+}
+.offerSpan {
+  margin-top: 4px;
+  margin-left: 4px;
+  opacity: 0.5;
+  transition: 0.8s all;
+  border: none;
+}
+
+.card:hover .offerSpan {
+  opacity: 1;
+  background-color: #d10024;
+  animation: mymove 5s infinite;
+}
+@keyframes mymove {
+  0% {
+    top: 0px;
+  }
+  25% {
+    top: 200px;
+  }
+  75% {
+    top: 50px;
+  }
+  100% {
+    top: 00px;
+  }
+}
+
+.profile-image{
+  position: relative;
+}
+.edit-profile-btn{
+  position: absolute;
+  position: absolute;
+  top: 86px;
+  left: 5rem;
+}
+
+.imgView {
+  width: 100%;
+  border: none;
+}
+.image-box {
+  display: block;
+  max-width: 100%;
+}
+
+
+@media only screen and (max-width: 356px) {
+  .searchDiv {
+    display: none;
+  }
+}
+.shop-body >h3{
+  font-size: 1.2rem;
+}

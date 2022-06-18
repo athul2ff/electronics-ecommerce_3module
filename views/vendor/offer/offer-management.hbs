@@ -1,0 +1,79 @@
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+  <h5 class="mb-0"><strong>Offer Management</strong></h5>
+  <span class="text-secondary">Offer Management
+    <i class="fa fa-angle-right"></i>
+    All Offer</span>
+
+  <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+    <!--Product Listing-->
+    <div class="product-list">
+
+      <div class="row border-bottom mb-4">
+        <div class="col-sm-8 pt-2">
+          <h6 class="mb-4 bc-header">Running Offers</h6>
+        </div>
+        <div class="col-sm-4 text-right pb-3">
+          <a
+            href="/vendor/add-offer"
+            class="btn btn-round btn-theme text-white"
+          ><i class="fa fa-plus"></i> Add Offer</a>
+        </div>
+      </div>
+
+      <div class="table-responsive product-list">
+
+        <table class="table table-bordered table-striped mt-3" id="productList">
+          <thead>
+            <tr>
+              <th width="6%">Image</th>
+              <th>Product name</th>
+              <th>Price</th>
+              <th>Discound</th>
+              <th>Offer Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each offers}}
+              <tr>
+                <td class="align-middle"><img
+                    src="/images/productImage/{{this._id}}1.png"
+                    width="80px"
+                    alt=""
+                  /></td>
+                <td class="align-middle">
+                  <h6><strong>{{this.ProductName}}</strong></h6>
+                  <p>{{this.description}}</p>
+                </td>
+                <td class="align-middle">₹{{this.price}}</td>
+                <td class="align-middle"><span
+                    class="text-danger"
+                  >{{this.discound}}</span></td>
+                <td class="align-middle"><span
+                    class="text-danger"
+                  >{{this.actualPrice}}</span></td>
+                <td class="align-middle text-center">
+                  <a
+                    class="btn btn-link text-theme p-1"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit Offer"
+                    href="/vendor/edit-offer/{{this._id}}"
+                  ><i class="fa fa-pencil"></i></a>
+                  <button
+                    class="btn btn-link text-warning p-1"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="End Offer"
+                    onclick="endOffer('{{this._id}}',false)"
+                  ><i class="fas fa-ban"></i></button>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--/Product Listing-->
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-3"><strong>Product Categories</strong></h5>
+
+    <div class="col-sm-12 col-xs-12 content pt-3 pl-0">
+
+        <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+            <!--Product Listing-->
+            <div class="product-list">
+
+                <div class="row border-bottom mb-4">
+                    <div class="col-sm-8 pt-2">
+                        <h6 class="mb-4 bc-header">All Categories</h6>
+                    </div>
+                    <div class="col-sm-4 text-right pb-3">
+                        <button class="btn btn-round btn-theme" type="button" class="btn btn-theme" data-toggle="modal"
+                            data-target="#addCategory"><i class="fa fa-plus"></i>
+                            Add Categories</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive product-list">
+
+                    <table class="table table-bordered table-striped mt-3" id="productList">
+                        <thead>
+                            <tr>
+                                <th width="6%">Image</th>
+                                <th>Category Name</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each productCategories}}
+                            <tr>
+                                <td class="align-middle"><img src="/images/categoryImages/{{this._id}}.png" width="80px"
+                                        alt="" /></td>
+                                <td class="align-middle">
+                                    <h6><strong>{{this.category}}</strong></h6>
+                                </td>
+
+                                <td class="align-middle text-center">
+                                    <a class="btn btn-link text-theme p-1 "href="/admin/edit-category/{{this._id}}"><i class="fa fa-pencil"></i></a>
+                                    <button class="btn btn-link text-danger p-1"
+                                        onclick="deleteCategory('{{this._id}}')"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!--/Product Listing-->
+        </div>
+
+    </div>
+</div>
+
+<div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="addCategoryLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Add New Categories</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/admin/add-New-Product-Category" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Category Name</label>
+                        <input type="text" class="form-control" id="categoryName" placeholder="Enter Category Name"
+                            name="category" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Upload Category Image in PNG formate</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile04"
+                                    aria-describedby="inputGroupFileAddon04" required name="categoryImage"
+                                    accept="image*/">
+                                <label class="custom-file-label" for="inputGroupFile04">Choose
+                                    file</label>
+                            </div>
+
+                        </div>
+                    </div>
+               
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{{!-- edit --}}
+
+
+
+<script>
+    function viewImage(event) {
+        document.getElementById('imgView').src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

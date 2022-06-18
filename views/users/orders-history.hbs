@@ -1,0 +1,54 @@
+<div class="container-fluid">
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+      <!--Striped table-->
+      <div
+        class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm"
+        style="overflow-y: scroll;"
+      >
+        <h3 class="m-4 text-center">MY Orders</h3>
+        <hr />
+        {{!-- <div class="table-responsive"> --}}
+          <table class="table table-striped" id="project_table">
+            <thead>
+              <tr>
+                <th>Image</th>
+                <th>Date</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Order Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each orders}}
+                <a href="/order-details">
+                  <tr>
+                    <td><img
+                        src="/images/productImage/{{this.product._id}}1.png"
+                        alt=""
+                        style="width: 60px;"
+                      /></td>
+                    <td>{{this.date}}</td>
+
+                    <td>{{this.product.ProductName}}</td>
+
+                    <td>{{this.subTotal}}</td>
+                    {{#if this.products.deliveryStatus}}{{else}}
+                      <td><label
+                          class="badge badge-danger badge-pill"
+                        >Pending</label>
+                      </td>
+                    {{/if}}
+                  </tr>
+                </a>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/Striped table-->
+
+    </div>
+  </div>
+</div>

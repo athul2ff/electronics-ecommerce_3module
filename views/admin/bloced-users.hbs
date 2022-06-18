@@ -1,0 +1,56 @@
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-0"><strong>User Management</strong></h5>
+    <span class="text-secondary">User Management
+        <i class="fa fa-angle-right"></i>
+        Blocked Users</span>
+
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <!--Datatable-->
+            <div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm">
+                <h6 class="mb-2">Blocked Users</h6>
+
+                <div class="table-responsive">
+                    <table id="example" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Profile Pic</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Mobile</th>
+                                <th>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each allUsers}}
+                            <tr>
+                                <td></td>
+                                <td>{{this.username}}</td>
+                                <td>{{this.email}}</td>
+                                <td>{{this.mobile}}</td>
+                                <td class="align-middle text-center">
+                                    {{!-- <button class="btn btn-link text-danger p-1" data-toggle="tooltip"
+                                        data-placement="top" title="Delete User Account"
+                                        onclick="deleteUser('{{this._id}}')"><i class="fas fa-trash"></i></button> --}}
+
+
+                                    <button class="btn btn-link text-danger p-1 " data-toggle="tooltip"
+                                        data-placement="top" title="Unblock"
+                                        onclick="banUser('{{this._id}}','unblock','{{this.username}}')"><i class="fas fa-sort-up"></i></button>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+                    </table>
+                </div>
+            </div>
+            <!--/Datatable-->
+
+        </div>
+    </div>
+
+
+
+</div>

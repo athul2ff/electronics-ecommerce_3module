@@ -1,0 +1,26 @@
+.adminError {
+  border: 1px solid red;
+}
+
+/* vendor account open form validation */
+.form-error {
+  color: rgb(241, 91, 91);
+  font-size: 12px;
+}
+/* verify mobile span */
+.verify-mobile {
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.verify-mobile:hover {
+  background-color: rgb(55, 224, 128);
+}
+.regButton {
+  display: none;
+}
+.regButtonNew {
+  display: block;
+}
+
+/* vendor dashboard sales report */
+

@@ -1,0 +1,67 @@
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+  <h5 class="mb-0"><strong>Coupen Management</strong></h5>
+  <span class="text-secondary">Coupen Management
+    <i class="fa fa-angle-right"></i>
+    All Coupen</span>
+
+  <div class="mt-4 mb-4 p-3 bg-white border shadow-sm lh-sm">
+    <!--Product Listing-->
+    <div class="product-list">
+
+      <div class="row border-bottom mb-4">
+        <div class="col-sm-8 pt-2">
+          <h6 class="mb-4 bc-header">All Coupens</h6>
+        </div>
+        <div class="col-sm-4 text-right pb-3">
+          <a
+            href="/admin/add-coupen"
+            class="btn btn-round btn-theme text-white"
+          ><i class="fa fa-plus"></i>
+            Add Cupoen</a>
+        </div>
+      </div>
+
+      <div class="table-responsive product-list">
+
+        <table class="table table-bordered table-striped mt-3" id="productList">
+          <thead>
+            <tr>
+              <th>Coupne Code</th>
+              <th>Discound</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each coupon}}
+              <tr>
+
+                <td class="align-middle"><span
+                    class="text-danger"
+                  >{{this.coupenCode}}</span></td>
+                <td class="align-middle">{{this.discound}}%</td>
+                <td class="align-middle text-center">
+                  <a
+                    class="btn btn-link text-theme p-1"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Edit Coupen"
+                    href="/admin/edit-coupen/{{this._id}}"
+                  ><i class="fa fa-pencil"></i></a>
+                  <button
+                    class="btn btn-link text-warning p-1"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="End Coupen"
+                    onclick="deleteOffer('{{this._id}}')"
+                  ><i class="far fa-trash-alt"></i></button>
+                </td>
+              </tr>
+            {{/each}}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!--/Product Listing-->
+  </div>
+</div>

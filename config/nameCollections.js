@@ -1,0 +1,15 @@
+module.exports = {
+  ADMIN_COLLECTION: "admin",
+  VENDOR_COLLECTION: "vendor",
+  USER_COLLECTION: "user",
+  PRODUCT_COLLECTION: "product",
+  CATEGORY_COLLECTION: "productCategories",
+  CART_COLLECTION: "cart",
+  ORDER_COLLECTION: "order",
+  ADDRESS_COLLECTION: "address",
+  COUPEN_COLLECTION: "coupen",
+  OFFER_COLLETION: "offers",
+  serviceID: process.env.serviceID,
+  accountsID: process.env.accountsID,
+  authToken: process.env.authToken,
+};

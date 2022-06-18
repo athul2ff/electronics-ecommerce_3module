@@ -1,0 +1,123 @@
+<!--Page loader-->
+<div class="loader-wrapper">
+    <div class="loader-circle">
+        <div class="loader-wave"></div>
+    </div>
+</div>
+<!--Page loader-->
+
+<!--Page Wrapper-->
+
+<div class="container-fluid">
+
+    <!--Header-->
+    <div class="row header shadow-sm">
+
+        <!--Logo-->
+        <div class="col-sm-3 pl-0 text-center header-logo">
+            <div class="bg-theme mr-3 pt-3 pb-2 mb-0">
+                <h3 class="logo"><a href="#" class="text-secondary logo"><i class="fas fa-users-cog"></i></i> Big Deal
+                        <span class="small"> admin</span></a></h3>
+            </div>
+        </div>
+        <!--Logo-->
+
+        <!--Header Menu-->
+        <div class="col-sm-9 header-menu pt-2 pb-0">
+            <div class="row">
+
+                <!--Menu Icons-->
+                <div class="col-sm-4 col-8 pl-0">
+                    <!--Toggle sidebar-->
+                    <span class="menu-icon" onclick="toggle_sidebar()">
+                        <span id="sidebar-toggle-btn"></span>
+                    </span>
+                  
+                </div>
+                <!--Menu Icons-->
+
+                <!--Search box and avatar-->
+                <div class="col-sm-8 col-4 text-right flex-header-menu justify-content-end">
+                    <a href="/admin/logout" class="btn btn-warning">Logout</a>
+                </div>
+                <!--Search box and avatar-->
+            </div>
+        </div>
+        <!--Header Menu-->
+    </div>
+    <!--Header-->
+
+    <!--Main Content-->
+
+    <div class="row main-content">
+        <!--Sidebar left-->
+        <div class="col-sm-3 col-xs-6 sidebar pl-0">
+            <div class="inner-sidebar mr-3">
+                <!--Image Avatar-->
+                <div class="avatar text-center">
+                    <img src="/images/admin.png" alt="" class="rounded-circle" />
+                    <p><strong>Admin</strong></p>
+                    <span class="text-primary small"><strong>big Deal</strong></span>
+                </div>
+                <!--Image Avatar-->
+
+                <!--Sidebar Navigation Menu-->
+                <div class="sidebar-menu-container">
+                    <ul class="sidebar-menu mt-4 mb-4">
+                        <li class="parent">
+                            <a href="/admin" class=""><i class="fa fa-dashboard mr-3"> </i>
+                                <span class="none">Dashboard </span>
+                            </a>
+
+                        </li>
+                        </li>
+                        <li class="parent">
+                            <a href="/admin/product-categories-management" class=""><i class="fa fa-sitemap mr-3"></i>
+                                <span class="none">Categories Management </span>
+                            </a>
+                        </li>
+
+                        <li class="parent">
+                            <a href="/admin/user-management" onclick="toggle_menu('form_element'); return false"
+                                class=""><i class=" mr-3 far fa-user"></i>
+                                <span class="none">User Management <i
+                                        class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="form_element">
+                                <li class="child"><a href="/admin/user-management" class="ml-4"><i
+                                            class="fa fa-angle-right mr-2"></i> All Users </a></li>
+                                <li class="child"><a href="/admin/blocked-users" class="ml-4"><i
+                                            class="fa fa-angle-right mr-2"></i> Blocked Users </a></li>
+
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="/admin/vendor-management" onclick="toggle_menu('venodr-management'); return false"
+                                class=""><i class=" mr-3 fas fa-store-alt"></i>
+                                <span class="none">Vendor Management <i
+                                        class="fa fa-angle-down pull-right align-bottom"></i></span>
+                            </a>
+                            <ul class="children" id="venodr-management">
+                                <li class="child"><a href="/admin/vendor-management" class="ml-4"><i
+                                            class="fa fa-angle-right mr-2"></i> All Vendor </a></li>
+                                <li class="child"><a href="/admin/blocked-vendor" class="ml-4"><i
+                                            class="fa fa-angle-right mr-2"></i> Blocked Vendor </a></li>
+
+                            </ul>
+                        </li>
+                        <li class="parent">
+                            <a href="/admin/coupen-management"
+                                class=""><i class=" mr-3 fas fa-tag"></i></i>
+                                <span class="none">Coupen Management</span>
+                            </a>
+                            
+                        </li>
+
+
+
+                    </ul>
+                </div>
+                <!--Sidebar Naigation Menu-->
+            </div>
+        </div>
+        <!--Sidebar left-->

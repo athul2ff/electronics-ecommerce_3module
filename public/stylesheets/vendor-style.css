@@ -1,0 +1,55 @@
+.imgViewDiv {
+  width: 200px;
+  height: 200px;
+  display: none;
+}
+
+.imgView {
+  width: 100%;
+  border: none;
+}
+.image-box {
+  display: block;
+  max-width: 100%;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+  margin-bottom: none;
+}
+.form-control .error {
+  border: 1px solid red;
+}
+
+/* crop image */
+/* 
+.img {
+  display: block;
+  max-width: 100%;
+} */
+.preview {
+  overflow: hidden;
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  border: 1px solid red;
+}
+
+/* vendor dashboard Export btn */
+.exportBtn {
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.5s font-size;
+}
+.exportBtn:hover {
+  font-size: 1.1rem;
+}
+
+/* date error in sales report */
+.dateError {
+  border: 1px solid red;
+  color: red;
+  transition: all 0.5s;
+}
+

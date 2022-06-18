@@ -1,0 +1,56 @@
+<div class="container-fluid login-wrapper">
+  <div class="login-box">
+    <h1 class="text-center mb-5"><i class="fas fa-users-cog"></i>
+      Big Deal Admin</h1>
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6 col-sm-6 col-12 login-box-form p-4">
+        <h3 class="mb-2">Login</h3>
+        <small class="text-muted bc-description">Sign in with your credentials</small>
+        <form action="/admin/login" class="mt-2" method="POST">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i
+                  class="fa fa-user"
+                ></i></span>
+            </div>
+            <input
+              name="username"
+              type="text"
+              class="form-control mt-0 {{adminerrorClass}}"
+              placeholder="Username"
+              aria-label="Username"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i
+                  class="fa fa-lock"
+                ></i></span>
+            </div>
+            <input
+              name="password"
+              type="password"
+              class="form-control mt-0 {{adminerrorClass}}"
+              placeholder="Password"
+              aria-label="Password"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+
+          <div class="form-group">
+            <button
+              class="btn btn-theme btn-block p-2 mb-1"
+              type="submit"
+            >Login</button>
+            {{!-- {{#if adminLoginError}} --}}
+              <small class="text-danger"><strong
+                >{{adminLoginError}}</strong></small>
+            {{!-- {{/if}} --}}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,305 @@
+<!--Content right-->
+<div class="container">
+
+    <div class="col-sm-12 col-xs-12 content pt-3 pl-0">
+        <h5 class="mb-0 text-center p-4"><strong>User profile</strong></h5>
+
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <!--User profile header-->
+                <div class="mt-1 mb-3 button-container bg-white border shadow-sm">
+                    <div class="profile-bg p-5"
+                        style="background-image: url('/assets/img/tarred.jpeg');background-size: cover; background-position:fixed; background-repeat: no-repeat; ">
+                        <div class="profile-image">
+                            <img src="/images/users/{{userDetails._id}}.png" height="125px" width="125px"
+                                class="rounded-circle shadow profile-img" />
+
+                            {{!-- <i class="edit-btn fas fa-pencil-alt text-white edit-profile-btn" type="button"
+                                data-toggle="modal" data-target="#updateImage"></i> --}}
+
+                        </div>
+                    </div>
+                    <div class="profile-bio-main container-fluid">
+                        <div class="row col">
+                            <h3 class="mt-4 text-center">{{userDetails.username}}</h3>
+                        </div>
+                    </div>
+                </div>
+                <!--/User profile header-->
+
+            </div>
+        </div>
+
+        <div class="row mt-3">
+
+            <!--User profile content-->
+            <div class="col-sm-12 col-md-12">
+                <div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm custom-tabs">
+
+                    <nav>
+                        <div class="nav nav-tabs nav-fill active" id="nav-customContent" role="tablist">
+                            <a class="nav-item nav-link" id="nav-profile" data-toggle="tab" href="#custom-profile"
+                                role="tab" aria-controls="nav-profile" aria-selected="false">
+                                <i class="fa fa-file-text-o"></i>
+                                Personal Info
+                            </a>
+                            <a class="nav-item nav-link" id="nav-home" data-toggle="tab" href="#custom-home" role="tab"
+                                aria-controls="nav-home" aria-selected="true">
+                                <i class="fa fa-list-ul"></i>
+                                Delivery Address
+                            </a>
+
+                            <a class="nav-item nav-link" id="nav-contact" data-toggle="tab" href="#custom-contact"
+                                role="tab" aria-controls="nav-contact" aria-selected="false">
+                                <i class="fa fa-paperclip"></i>
+                                Coupon Code
+                            </a>
+                        </div>
+                    </nav>
+
+                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-customContent">
+                        <div class="tab-pane fade show p-4" id="custom-home" role="tabpanel" aria-labelledby="nav-home">
+                            <div class="dropdown-divider"></div>
+
+                            <!--Single feed-->
+                            <div class="feed-single mt-3 mb-3">
+                                <div class="row">
+                                    {{#each allAddress}}
+                                    <div class="col-md-6 col-lg-4 col-sm-12">
+                                        <div class="col p-3 addressDiv">
+                                            <div class="col-12 d-flex justify-content-between">
+                                                <div class="text-left">Address {{Count}}</div>
+                                                <div class="mr-auot ml-0 align-self">
+                                                    <i class="far fa-edit edit-btn"
+                                                        onclick="EditAddress('{{this._id}}','{{this.address.name}}')"></i>
+                                                    <i class="far fa-trash-alt edit-btn"
+                                                        onclick="deleteAddress('{{this._id}}','{{this.address.name}}')"></i>
+                                                </div>
+                                            </div>
+                                            <table class="table table-striped">
+
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Name</td>
+                                                        <td>{{this.address.name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email</td>
+                                                        <td>{{this.address.email}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Mobile</td>
+                                                        <td>{{this.address.mobile}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Place</td>
+                                                        <td>{{this.address.place}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Post</td>
+                                                        <td>{{this.address.post}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>PIN</td>
+                                                        <td>{{this.address.PIN}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>District</td>
+                                                        <td>{{this.address.district}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>State</td>
+                                                        <td>{{this.address.state}}</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+                                    {{/each}}
+
+                                </div>
+                            </div>
+                            <!--/Single feed-->
+
+                        </div>
+                        <!--/Feed tab-->
+
+                        <!--Personal info tab-->
+                        <div class="tab-pane fade active p-4" id="custom-profile" role="tabpanel"
+                            aria-labelledby="nav-profile">
+                            <div class="table-responsive mb-4 ">
+                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                    data-target="#updatePrfile">
+                                    Update Your Profile
+                                </button>
+                                <table class="table table-borderless table-striped m-0">
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">Full Name</th>
+                                            <td>{{userDetails.username}}</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Email</th>
+                                            <td>{{userDetails.email}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">Mobile</th>
+                                            <td>{{userDetails.mobile}}</td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+                        </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="updatePrfile" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Update Profile</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="editProfile" method="POST" action="/update-profile"
+                                            enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label for="profile-image">Profile Pic</label>
+                                                <input type="file" id="profile-image" name="profile-image"
+                                                    accept="image/png" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name">Name</label>
+                                                <input type="hidden" id="userID" name="userID"
+                                                    value="{{userDetails._id}}" />
+                                                <input type="hidden" id="prevName" name="prevName"
+                                                    value="{{userDetails.username}}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="input" type="text" name="FullName"
+                                                    placeholder="Enter Full Name" id="username"
+                                                    value="{{userDetails.username}}" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input class="input" id="emailid" type="email" name="email"
+                                                    value="{{userDetails.email}}" placeholder="Email" />
+                                            </div>
+
+                                            <div class="form-group">
+                                                <input class="input" id="Mobile" type="number" name="mobile"
+                                                    value="{{userDetails.mobile}}" placeholder="Mobile" />
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+
+                                        </form>
+                                        <button type="button" class="btn btn-secondary mt-3"
+                                            data-dismiss="modal">Close</button>
+
+                                    </div>
+                                    <div class="modal-footer">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--/Personal info tab-->
+
+                        <!--Resume tab-->
+                        <div class="tab-pane fade p-4" id="custom-contact" role="tabpanel"
+                            aria-labelledby="nav-contact">
+                            <div class="row">
+                                {{#each coupon}}
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 bg-light p-4 border border-primary">
+                                    <span class="text-center ">Coupon Code</span><br>
+                                    <span class="text-center text-info"> {{this.coupenCode}}</span>
+                                    <hr class="text-center text-danger">
+                                    <span class="text-center ">Coupoon Type</span><br>
+                                    <span class="text-center text-info"> {{this.type}}</span>
+                                    <hr class="text-center text-danger">
+                                    <span class="text-center ">Discound</span><br>
+                                    <span class="text-center text-info">{{this.discound}}</span>
+                                    <hr class="text-center text-danger">
+                                    <span class="text-center ">Product</span><br>
+                                    {{#if this.product}}
+                                    <span class="text-center text-info">{{CouponProduct this.product}}</span>
+                                    <hr class="text-center text-danger">
+                                    {{/if}}
+
+
+                                </div>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/User profile content-->
+        </div>
+    </div>
+</div>
+
+{{! edit modal profile address update }}
+<div class="modal" tabindex="-2" role="dialog" id="editAdress">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Your Address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editAdress" method="POST" action="/edit-address">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="hidden" id="ID" name="userID" />
+                        <input type="hidden" id="previsouName" name="prevName" />
+                        <div class="form-group">
+                            <input class="input" type="text" name="FullName" placeholder="Enter Full Name"
+                                id="FullName" />
+                        </div>
+
+                        <div class="form-group">
+
+                            <input class="input" id="email" type="email" name="email" placeholder="Email" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="number" name="mobile" id="mobile" placeholder="Mobile Number" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="place" id="place" placeholder="Place" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="post" id="post" placeholder="Post" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="number" name="PIN" id="PIN" placeholder="PIN " />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="district" id="district" placeholder="District" />
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="state" id="state" placeholder="State" />
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+
+      {{#each allProduct}}
+      <div class="col-md-4 col-lg-3 col-sm-6 col-xs-2 mb-3 products">
+        <div class="card position-relative">
+          <a href="/productDetails/{{this._id}}">
+            <img class="card-img-top" src="/images/productImage/{{this._id}}1.png" alt="" />
+          </a>
+          {{offerPercentage this.price
+          this.offer
+          this.discound}}</span>
+          <div class="card-body text-center bg-light">
+            <p class="product-category">{{this.category}}</p>
+            <h4 class="product-name"><a href="#">{{this.ProductName}}</a></h4>
+            <p class="product-price">₹{{this.price}}</p>
+            <div class="product-rating text-center">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <div class="add-to-cart mt-4">
+              <button onclick="addToCart('{{this._id}}')" class="btn btn-primary addToCartBtn col-12"><i
+                  class="fa fa-shopping-cart"></i>
+                add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+    </div>
+    <!-- /store products -->
+
+  </div>
+  <!-- /STORE -->
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->
+</div>
+<!-- /SECTION -->

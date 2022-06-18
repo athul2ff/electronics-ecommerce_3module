@@ -1,0 +1,80 @@
+<!--Content right-->
+<div class="col-sm-9 col-xs-12 content pt-3 pl-0">
+    <h5 class="mb-0"><strong>User profile</strong></h5>
+    <span class="text-secondary">Pages <i class="fa fa-angle-right"></i> User profile</span>
+
+    <div class="row mt-3">
+        <div class="col-sm-12">
+            <!--User profile header-->
+            <div class="mt-1 mb-3 button-container bg-white border shadow-sm">
+
+                <div class="profile-bio-main container-fluid">
+                    <div class="row">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                            <h3 class="text-center">{{session.username}}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/User profile header-->
+
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <!--User profile sidebar-->
+        <div class="col-sm-12 col-md-4">
+            <div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm">
+
+                <div class="profile-gallery">
+
+                    <div class="mt-3 mb-3">
+                        <h6>Products</h6>
+                        <div class="row">
+                            {{#each product}}
+                            <div class="col-4">
+                                <img class="card-img-top" src="/images/productImage/{{this._id}}1.png"
+                                    alt="Card image cap">
+                            </div>
+                            {{/each}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/User profile sidebar-->
+
+        <!--User profile content-->
+        <div class="col-sm-12 col-md-8">
+            <div class="mt-1 mb-3 p-3 button-container bg-white border shadow-sm custom-tabs">
+                <form id="editVendorProfile" method="POST" action="/vendor/edit-vendor-profile">
+                    <input type="hidden" name="userID" value="{{session._id}}">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email"
+                            value="{{vendorDetails.email}}" aria-describedby="emailHelp" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username"
+                            value="{{vendorDetails.username}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <input type="number" class="form-control" id="mobile" name="mobile" placeholder="mobile"
+                            value="{{vendorDetails.mobile}}">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+
+            </div>
+        </div>
+        <!--/User profile content-->
+    </div>
+
+
+
+</div>
