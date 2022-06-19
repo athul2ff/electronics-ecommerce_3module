@@ -100,7 +100,7 @@ module.exports = {
         .then((user) => resolve(user));
     });
   },
-  // get blocked users/
+  // get blocked users ////
   getBlockedUsers: () => {
     return new Promise(async (resolve, reject) => {
       await db

@@ -25,7 +25,7 @@ const verifyVendor = (req, res, next) => {
 
 var vendorError = null;
 
-// var from
+// var from //
 var salesReport;
 var from = new Date("2021-07-01");
 var to = new Date();

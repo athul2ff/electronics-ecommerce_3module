@@ -133,7 +133,7 @@ module.exports = {
           (products) => products.item == productId
         );
         if (prodExist != -1) {
-          //if product is there
+          //if product is there//
           db.get()
             .collection(NAME_COLLECTION.CART_COLLECTION)
             .updateOne(

@@ -18,7 +18,7 @@ const verifyAdmin = (req, res, next) => {
 var from = new Date("2022-07-01");
 var to = new Date();
 
-/* GET home page. */
+/* GET home page. *//
 router.get("/", verifyAdmin, async function (req, res, next) {
   
   let usersCount = await ADMIN_HELPERS.getUsersCount();

@@ -24,7 +24,7 @@ module.exports = {
         var saltRounds = 10;
         var salt = await bcrypt.genSaltSync(saltRounds);
         vendorData.password = await bcrypt.hash(vendorData.password, 10);
-        // vendorData.password = await bcrypt.hash(vendorData.password, 10);
+        // vendorData.password = await bcrypt.hash(vendorData.password, 10);//
         await db
           .get()
           .collection(NAME_COLLECTION.VENDOR_COLLECTION)

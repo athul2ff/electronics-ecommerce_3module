@@ -27,7 +27,7 @@ router.get("/", async (req, res, next) => {
   if (req.session.uesrLoggedIn) {
     cartCount = await USER_HELPERS.cartCount(req.session.user._id);
   }
-  // res.render("users/user-home",
+  // res.render("users/user-home",//
   res.render("users/text-home", {
     user: true,
     userSession: req.session.user,
@@ -37,7 +37,7 @@ router.get("/", async (req, res, next) => {
   });
 });
 
-// offer price handlebars
+// offer price handlebars //
 
 Handlebars.registerHelper("offerPercentage", function (price, offer, discound) {
   if (offer) {
