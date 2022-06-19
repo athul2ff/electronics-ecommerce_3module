@@ -58,7 +58,7 @@ router.get("/login", (req, res) => {
     req.session.usererrorClass = null;
   }
 });
-
+ 
 router.post("/login", (req, res) => {
   USER_HELPERS.doLogin(req.body).then((response) => {
     if (response.status) {

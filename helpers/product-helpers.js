@@ -110,7 +110,7 @@ module.exports = {
     });
   },
 
-  /// user///
+  /// user/// 
   getProductCategories: () => {
     return new Promise(async (resolve, reject) => {
       let categories = await db

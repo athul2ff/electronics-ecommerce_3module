@@ -321,6 +321,8 @@ router.get("/changeProductStatus/:id/:value", verifyVendor, (req, res) => {
   );
 });
 
+
+
 router.get("/sendOtp/:mobile", (req, res) => {
   
   if (req.params.mobile) {

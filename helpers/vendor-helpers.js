@@ -20,7 +20,7 @@ module.exports = {
           resolve({ vedndorExist: true });
         }
       } else {
-       
+ 
         var saltRounds = 10;
         var salt = await bcrypt.genSaltSync(saltRounds);
         vendorData.password = await bcrypt.hash(vendorData.password, 10);
